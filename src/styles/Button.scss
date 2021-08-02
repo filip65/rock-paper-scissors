@@ -1,0 +1,68 @@
+@import "../styles/colors";
+
+.btn {
+  width: 34vw;
+  height: 34vw;
+  max-width: 200px;
+  max-height: 200px;
+  position: absolute;
+  background: $white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s transform, 0.3s box-shadow;
+  border: none;
+
+  img {
+    width: 35%;
+    object-fit: contain;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 26.6vw;
+    height: 26.6vw;
+    max-width: 150px;
+    max-height: 150px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(211, 210, 210);
+    border-radius: inherit;
+    z-index: -10;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 26.6vw;
+    height: 26.2vw;
+    max-width: 150px;
+    max-height: 145px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 3px));
+    background: $white;
+    border-radius: inherit;
+    z-index: -10;
+  }
+}
+
+.btn-paper {
+  background: linear-gradient(0deg, rgba(72, 101, 244, 1) 0%, #5671f5 100%);
+  box-shadow: 0px 6px 0px 0px #3246aa;
+}
+
+.btn-scissors {
+  background: linear-gradient(0deg, #ec9e0e 0%, rgba(236, 169, 34, 1) 100%);
+  box-shadow: 0px 6px 0px 0px #ad660a;
+}
+
+.btn-rock {
+  background: linear-gradient(0deg, #dc2e4e 0%, #dd405d 100%);
+  box-shadow: 0px 6px 0px 0px #991931;
+}
