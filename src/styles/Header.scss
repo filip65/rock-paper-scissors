@@ -1,0 +1,82 @@
+@import "./colors";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  max-width: 700px;
+  margin: 30px auto 0 auto;
+  border: 3px solid $headerOutline;
+  border-radius: 7px;
+  padding: 10px;
+  text-transform: uppercase;
+
+  h1 {
+    color: $white;
+    line-height: 0.8;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-left: 8px;
+  }
+
+  .score {
+    width: 80px;
+    height: 70px;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    line-height: 1;
+
+    &__text {
+      color: $scoreText;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    #score__number {
+      color: $darkText;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .score {
+      width: 115px;
+      height: 90px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    & {
+      margin-top: 45px;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .score {
+      width: 150px;
+      height: 115px;
+
+      &__text {
+        font-size: 1rem;
+      }
+
+      #score__number {
+        font-size: 3.5rem;
+      }
+    }
+  }
+}
