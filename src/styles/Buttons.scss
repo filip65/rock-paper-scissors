@@ -31,7 +31,7 @@
     align-items: center;
     cursor: pointer;
     z-index: 10;
-    transition: 0.3s transform;
+    transition: 0.3s transform, 0.3s box-shadow;
     border: none;
 
     img {
