@@ -3,7 +3,7 @@
 .result {
   //   width: 85%;
   position: absolute;
-  top: 58%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
   justify-content: center;
@@ -11,7 +11,8 @@
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 65px;
+  grid-column-gap: 65px;
+  grid-row-gap: 40px;
   grid-template-areas:
     "column1 column2"
     "verdict verdict";
