@@ -8,10 +8,10 @@ import iconRock from "../images/icon-rock.svg";
 
 import Button from "./Button";
 
-function Choosing({ setUserChoise, setIsChoosing }) {
+function Choosing({ handleUserChoice, setIsChoosing }) {
   const handleClick = (choise) => {
     setIsChoosing(false);
-    setUserChoise(choise);
+    handleUserChoice(choise);
   };
 
   return (

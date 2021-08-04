@@ -2,8 +2,9 @@
 
 .result {
   //   width: 85%;
+  height: calculate(fit-content + 330px);
   position: absolute;
-  top: 45%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   justify-content: center;
@@ -12,13 +13,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 65px;
+  grid-template-areas:
+    "column1 column2"
+    "verdict verdict";
 
   @media (min-width: 992px) {
     position: relative;
-    margin: auto;
+    margin: auto 2rem;
     top: unset;
     left: unset;
     transform: unset;
+    grid-template-areas: "column1 verdict column2";
+    align-items: center;
   }
 
   .column {
@@ -47,7 +53,7 @@
 
       @media (min-width: 992px) {
         top: unset;
-        bottom: 5%;
+        bottom: 8%;
       }
 
       .counter-number {
@@ -128,7 +134,7 @@
     }
 
     .house-btn {
-      animation: house-animation 3s;
+      animation: house-animation 2.5s ease-in;
     }
 
     @keyframes house-animation {
@@ -142,6 +148,50 @@
       100% {
         opacity: 1;
       }
+    }
+  }
+
+  .verdict {
+    grid-area: verdict;
+    text-transform: uppercase;
+    animation: verdict-animation 1s;
+    animation-delay: 2.25s;
+    // display: none;
+    visibility: hidden;
+
+    h2 {
+      color: $white;
+      font-size: 3.2rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .playAgainBtn {
+      background: $white;
+      border: none;
+      padding: 16px 60px;
+      border-radius: 7px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.2s;
+
+      &:hover,
+      &:active {
+        color: hsl(349, 73%, 51%);
+      }
+    }
+  }
+
+  @keyframes verdict-animation {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }

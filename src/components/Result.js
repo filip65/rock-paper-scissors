@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import "../styles/Result.scss";
 
@@ -8,7 +8,38 @@ import iconRock from "../images/icon-rock.svg";
 
 import Button from "./Button";
 
-function Result({ userChoise, houseChoise }) {
+function Result({ userChoise, houseChoise, setIsChoosing }) {
+  const [gameResult, setGameResult] = useState(null);
+  const verdictRef = useRef(null);
+
+  useEffect(() => {
+    if (userChoise === houseChoise) {
+      setGameResult("draw");
+    } else {
+      if (userChoise === "rock") {
+        if (houseChoise === "scissors") setGameResult("user");
+        else setGameResult("house");
+      }
+
+      if (userChoise === "paper") {
+        if (houseChoise === "rock") setGameResult("user");
+        else setGameResult("house");
+      }
+
+      if (userChoise === "scissors") {
+        if (houseChoise === "paper") setGameResult("user");
+        else setGameResult("house");
+      }
+    }
+    console.log("ahoj");
+  }, [userChoise]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      verdictRef.current.style.visibility = "visible";
+    }, 2250);
+  });
+
   return (
     <div className="result">
       <div className="column">
@@ -23,6 +54,19 @@ function Result({ userChoise, houseChoise }) {
           type={userChoise}
         />
         <h3>you picked</h3>
+      </div>
+
+      <div className="verdict" ref={verdictRef}>
+        <h2>
+          {gameResult === "user"
+            ? "You win!"
+            : gameResult === "house"
+            ? "You lose"
+            : "it's draw"}
+        </h2>
+        <button className="playAgainBtn" onClick={() => setIsChoosing(true)}>
+          play again
+        </button>
       </div>
 
       <div className="column">

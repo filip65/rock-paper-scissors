@@ -10,23 +10,31 @@ function App() {
   const [userChoise, setUserChoise] = useState(null);
   const [houseChoise, setHouseChoise] = useState(null);
 
-  useEffect(() => {
+  const handleUserChoice = (usrChoice) => {
     const choices = ["paper", "rock", "scissors"];
     const index = Math.floor(Math.random() * 3);
 
+    setUserChoise(usrChoice);
     setHouseChoise(choices[index]);
-  }, [userChoise]);
+  };
 
   return (
     <div className="App">
       <Header />
 
       {isChoosing && (
-        <Choosing setUserChoise={setUserChoise} setIsChoosing={setIsChoosing} />
+        <Choosing
+          handleUserChoice={handleUserChoice}
+          setIsChoosing={setIsChoosing}
+        />
       )}
 
       {!isChoosing && (
-        <Result userChoise={userChoise} houseChoise={houseChoise} />
+        <Result
+          userChoise={userChoise}
+          houseChoise={houseChoise}
+          setIsChoosing={setIsChoosing}
+        />
       )}
     </div>
   );
