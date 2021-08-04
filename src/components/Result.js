@@ -8,7 +8,7 @@ import iconRock from "../images/icon-rock.svg";
 
 import Button from "./Button";
 
-function Result({ userChoise }) {
+function Result({ userChoise, houseChoise }) {
   return (
     <div className="result">
       <div className="column">
@@ -26,8 +26,22 @@ function Result({ userChoise }) {
       </div>
 
       <div className="column">
-        {/* <div className="circle"></div> */}
-        <div className="circle"></div>
+        <div className="circle">
+          <p className="counter-number one">1</p>
+          <p className="counter-number two">2</p>
+          <p className="counter-number three">3</p>
+        </div>
+        <Button
+          className="house-btn"
+          image={
+            houseChoise === "paper"
+              ? iconPaper
+              : houseChoise === "rock"
+              ? iconRock
+              : iconScissors
+          }
+          type={houseChoise}
+        />
         <h3>the house picked</h3>
       </div>
     </div>
