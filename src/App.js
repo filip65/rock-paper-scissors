@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
 
 import Header from "./components/Header";
 import Choosing from "./components/Choosing";
 import Result from "./components/Result";
 
+const localScore = localStorage.getItem("score");
+
 function App() {
   const [isChoosing, setIsChoosing] = useState(true);
   const [userChoise, setUserChoise] = useState(null);
   const [houseChoise, setHouseChoise] = useState(null);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(localScore ? parseInt(localScore) : 0);
+
+  console.log(localScore);
+
+  useEffect(() => {
+    localStorage.setItem("score", score);
+  }, [score]);
 
   const handleUserChoice = (usrChoice) => {
     const choices = ["paper", "rock", "scissors"];
