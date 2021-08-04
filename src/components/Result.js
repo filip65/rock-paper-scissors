@@ -11,6 +11,8 @@ import Button from "./Button";
 function Result({ userChoise, houseChoise, setIsChoosing }) {
   const [gameResult, setGameResult] = useState(null);
   const verdictRef = useRef(null);
+  const userBtn = useRef(null);
+  const houseBtn = useRef(null);
 
   useEffect(() => {
     if (userChoise === houseChoise) {
@@ -37,6 +39,15 @@ function Result({ userChoise, houseChoise, setIsChoosing }) {
   useEffect(() => {
     setTimeout(() => {
       verdictRef.current.style.visibility = "visible";
+      verdictRef.current.style.display = "block";
+
+      if (gameResult === "user") {
+        userBtn.current.classList.add("win");
+      }
+
+      if (gameResult === "house") {
+        houseBtn.current.classList.add("win");
+      }
     }, 2250);
   });
 
@@ -52,6 +63,7 @@ function Result({ userChoise, houseChoise, setIsChoosing }) {
               : iconScissors
           }
           type={userChoise}
+          innerRef={userBtn}
         />
         <h3>you picked</h3>
       </div>
@@ -85,6 +97,7 @@ function Result({ userChoise, houseChoise, setIsChoosing }) {
               : iconScissors
           }
           type={houseChoise}
+          innerRef={houseBtn}
         />
         <h3>the house picked</h3>
       </div>
