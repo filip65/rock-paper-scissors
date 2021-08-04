@@ -17,7 +17,7 @@ function App() {
         <Choosing setUserChoise={setUserChoise} setIsChoosing={setIsChoosing} />
       )}
 
-      {!isChoosing && <Result />}
+      {!isChoosing && <Result userChoise={userChoise} />}
     </div>
   );
 }
