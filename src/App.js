@@ -4,6 +4,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import Choosing from "./components/Choosing";
 import Result from "./components/Result";
+import Rules from "./components/Rules";
 
 const localScore = localStorage.getItem("score");
 
@@ -12,6 +13,7 @@ function App() {
   const [userChoise, setUserChoise] = useState(null);
   const [houseChoise, setHouseChoise] = useState(null);
   const [score, setScore] = useState(localScore ? parseInt(localScore) : 0);
+  const [isRulesOpen, setIsRulesOpes] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("score", score);
@@ -55,7 +57,10 @@ function App() {
         />
       )}
 
-      <button className="rules-btn">Rules</button>
+      <button className="rules-btn" onClick={() => setIsRulesOpes(true)}>
+        Rules
+      </button>
+      {isRulesOpen && <Rules setIsRulesOpes={setIsRulesOpes} />}
     </div>
   );
 }
