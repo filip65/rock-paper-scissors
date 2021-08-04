@@ -27,14 +27,6 @@ function App() {
     setHouseChoise(choices[index]);
   };
 
-  const scoreWin = () => {
-    setScore(score + 1);
-  };
-
-  const scoreLose = () => {
-    setScore(score - 1);
-  };
-
   return (
     <div className="App">
       <Header score={score} />
@@ -51,9 +43,8 @@ function App() {
           userChoise={userChoise}
           houseChoise={houseChoise}
           setIsChoosing={setIsChoosing}
-          scoreWin={scoreWin}
-          scoreLose={scoreLose}
           setScore={setScore}
+          score={score}
         />
       )}
 

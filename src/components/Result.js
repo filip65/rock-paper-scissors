@@ -8,14 +8,7 @@ import iconRock from "../images/icon-rock.svg";
 
 import Button from "./Button";
 
-function Result({
-  userChoise,
-  houseChoise,
-  setIsChoosing,
-  scoreWin,
-  scoreLose,
-  setScore,
-}) {
+function Result({ userChoise, houseChoise, setIsChoosing, score, setScore }) {
   const [gameResult, setGameResult] = useState(null);
   const verdictRef = useRef(null);
   const userBtn = useRef(null);
@@ -60,14 +53,14 @@ function Result({
   useEffect(() => {
     setTimeout(() => {
       if (gameResult === "user") {
-        scoreWin();
+        setScore(score + 1);
       }
 
       if (gameResult === "house") {
-        scoreLose();
+        setScore(score - 1);
       }
     }, 2250);
-  }, [gameResult]);
+  }, [gameResult, setScore]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="result">
