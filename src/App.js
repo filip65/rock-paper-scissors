@@ -13,8 +13,6 @@ function App() {
   const [houseChoise, setHouseChoise] = useState(null);
   const [score, setScore] = useState(localScore ? parseInt(localScore) : 0);
 
-  console.log(localScore);
-
   useEffect(() => {
     localStorage.setItem("score", score);
   }, [score]);
@@ -56,6 +54,8 @@ function App() {
           setScore={setScore}
         />
       )}
+
+      <button className="rules-btn">Rules</button>
     </div>
   );
 }

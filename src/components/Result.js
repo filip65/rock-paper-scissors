@@ -67,7 +67,6 @@ function Result({
         scoreLose();
       }
     }, 2250);
-    console.log("jouuuuu");
   }, [gameResult]);
 
   return (

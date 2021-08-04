@@ -21,3 +21,31 @@ h6,
 p {
   user-select: none;
 }
+
+.rules-btn {
+  background: transparent;
+  border: 2px solid $white;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  color: $white;
+  padding: 0.8rem 2.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s background;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.116);
+  }
+
+  @media (min-width: 992px) {
+    left: unset;
+    transform: unset;
+    right: 2vw;
+    bottom: 2vw;
+  }
+}
