@@ -9,6 +9,7 @@ function App() {
   const [isChoosing, setIsChoosing] = useState(true);
   const [userChoise, setUserChoise] = useState(null);
   const [houseChoise, setHouseChoise] = useState(null);
+  const [score, setScore] = useState(0);
 
   const handleUserChoice = (usrChoice) => {
     const choices = ["paper", "rock", "scissors"];
@@ -18,9 +19,17 @@ function App() {
     setHouseChoise(choices[index]);
   };
 
+  const scoreWin = () => {
+    setScore(score + 1);
+  };
+
+  const scoreLose = () => {
+    setScore(score - 1);
+  };
+
   return (
     <div className="App">
-      <Header />
+      <Header score={score} />
 
       {isChoosing && (
         <Choosing
@@ -34,6 +43,9 @@ function App() {
           userChoise={userChoise}
           houseChoise={houseChoise}
           setIsChoosing={setIsChoosing}
+          scoreWin={scoreWin}
+          scoreLose={scoreLose}
+          setScore={setScore}
         />
       )}
     </div>

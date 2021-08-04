@@ -8,7 +8,14 @@ import iconRock from "../images/icon-rock.svg";
 
 import Button from "./Button";
 
-function Result({ userChoise, houseChoise, setIsChoosing }) {
+function Result({
+  userChoise,
+  houseChoise,
+  setIsChoosing,
+  scoreWin,
+  scoreLose,
+  setScore,
+}) {
   const [gameResult, setGameResult] = useState(null);
   const verdictRef = useRef(null);
   const userBtn = useRef(null);
@@ -33,8 +40,7 @@ function Result({ userChoise, houseChoise, setIsChoosing }) {
         else setGameResult("house");
       }
     }
-    console.log("ahoj");
-  }, [userChoise]);
+  }, [userChoise, houseChoise]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,7 +55,20 @@ function Result({ userChoise, houseChoise, setIsChoosing }) {
         houseBtn.current.classList.add("win");
       }
     }, 2250);
-  });
+  }, [gameResult]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (gameResult === "user") {
+        scoreWin();
+      }
+
+      if (gameResult === "house") {
+        scoreLose();
+      }
+    }, 2250);
+    console.log("jouuuuu");
+  }, [gameResult]);
 
   return (
     <div className="result">
