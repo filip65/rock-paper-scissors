@@ -6,8 +6,6 @@ import Choosing from "./components/Choosing";
 import Result from "./components/Result";
 import Rules from "./components/Rules";
 
-import AddToHomeScreen from "@ideasio/add-to-homescreen-react";
-
 const localScore = localStorage.getItem("score");
 
 function App() {
@@ -31,7 +29,6 @@ function App() {
 
   return (
     <div className="App">
-      <AddToHomeScreen title="jou chces to instalovat?" />
       <Header score={score} />
 
       {isChoosing && (
