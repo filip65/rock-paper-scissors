@@ -17,9 +17,24 @@ function Choosing({ handleUserChoice, setIsChoosing }) {
   return (
     <div className="choosing">
       <img src={triangleIcon} alt="" className="triangle-bg" />
-      <Button image={iconPaper} type="paper" handleClick={handleClick} />
-      <Button image={iconScissors} type="scissors" handleClick={handleClick} />
-      <Button image={iconRock} type="rock" handleClick={handleClick} />
+      <Button
+        image={iconPaper}
+        type="paper"
+        handleClick={handleClick}
+        text="paper button"
+      />
+      <Button
+        image={iconScissors}
+        type="scissors"
+        handleClick={handleClick}
+        text="scissors button"
+      />
+      <Button
+        image={iconRock}
+        type="rock"
+        handleClick={handleClick}
+        text="rock button"
+      />
     </div>
   );
 }

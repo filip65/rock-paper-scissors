@@ -15,10 +15,15 @@
   z-index: 10;
   transition: 0.3s transform, 0.3s box-shadow;
   border: none;
+  color: transparent;
 
   img {
     width: 35%;
     object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &::before {
